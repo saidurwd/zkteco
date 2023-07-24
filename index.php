@@ -25,13 +25,13 @@
 			$.get("user_attendance.php", function (response, status) {
 				//console.log(response)
 				var data = JSON.parse(response);
-				//console.log(data)
+				console.log(data)
 				$.ajax({
 					url:"http://localhost/soft/ems/api/attendance",
 					method:"Post",
 					data: {data:data},
 					success: function(data){
-						console.log(data)
+						//console.log(data)
 					}
 				 });
 			});
