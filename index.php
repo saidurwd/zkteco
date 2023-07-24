@@ -9,7 +9,7 @@
 	</div>
 	<script type="text/javascript" src="JQuery3.2.1.min.js"></script>
 	<script type="text/javascript">
-		
+
 		var counter = 10;
 		intID = setInterval(Gettime, 1000);
 
@@ -17,7 +17,7 @@
 			document.getElementById("timer_show").innerHTML = 'Next Upload After = '+counter;
 			--counter
 			if (counter === 0) {
-				/*----------if time is out then call the function-------------*/	
+				/*----------if time is out then call the function-------------*/
 				callFunction();
 			}
 		}
@@ -25,13 +25,15 @@
 			$.get("user_attendance.php", function (response, status) {
 				//console.log(response)
 				var data = JSON.parse(response);
-				console.log(data)
+				//console.log(data);
 				$.ajax({
-					url:"http://localhost/soft/ems/api/attendance",
-					method:"Post",
+					url:"https://optimohrm.saidur-rahman.com/timesheet/attendances/page/import",
+					method:"POST", //POST / GET
+                    //dataType: "jsonp",
 					data: {data:data},
+                    //crossDomain:true,
 					success: function(data){
-						//console.log(data)
+						console.log(data)
 					}
 				 });
 			});
