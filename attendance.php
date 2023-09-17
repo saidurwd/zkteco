@@ -38,7 +38,7 @@
 
 
 			//echo $mydate;
-			$sql  = "SELECT u.*,c.* FROM USERINFO u, CHECKINOUT  c  WHERE u.USERID = c.USERID AND  FORMAT(c.CHECKTIME,'yyyyMMdd')";
+			$sql  = "SELECT u.*,c.* FROM USERINFO u, CHECKINOUT  c  WHERE u.USERID = c.USERID AND  FORMAT(c.CHECKTIME,'yyyyMMdd') ORDER BY c.CHECKTIME DESC";
 
 			$result = $db->query($sql);
 			//echo $result;

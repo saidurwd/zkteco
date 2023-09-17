@@ -3,7 +3,7 @@ $db_username = ''; //username
 $db_password = ''; //password
 
 //path to database file
-$database_path = realpath("attBackup.mdb");
+$database_path = realpath("att2000.mdb");
 //$database_path = realpath("C:/Program Files (x86)/ZKTeco/att2000.mdb");
 //check file exist before we proceed
 if (!file_exists($database_path)) {
