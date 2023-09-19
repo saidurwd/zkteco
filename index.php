@@ -30,7 +30,7 @@
 				var data = JSON.parse(response);
 				//console.log(data);
 				$.ajax({
-					url: "https://optimohrm.saidur-rahman.com/timesheet/attendances/page/import",
+					url: "http://localhost:8888/zkteco/insert.php",
 					method: "POST", //POST / GET
 					//dataType: "jsonp",
 					data: {

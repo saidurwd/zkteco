@@ -1,4 +1,5 @@
 <?php
+//Access
 $db_username = ''; //username
 $db_password = ''; //password
 

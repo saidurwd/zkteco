@@ -16,6 +16,21 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`zkteco` /*!40100 DEFAULT CHARACTER SET 
 
 USE `zkteco`;
 
+/*Table structure for table `attendance` */
+
+DROP TABLE IF EXISTS `attendance`;
+
+CREATE TABLE `attendance` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `employee_id` int(11) NOT NULL,
+  `attendance_date` date DEFAULT NULL,
+  `clock_in` time DEFAULT NULL,
+  `clock_out` time DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `attendance` */
+
 /*Table structure for table `checkinout` */
 
 DROP TABLE IF EXISTS `checkinout`;
