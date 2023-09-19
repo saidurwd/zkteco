@@ -11,6 +11,46 @@
 		<thead>
 			<tr>
 				<th>SL</th>
+				<th>employee_id</th>
+				<th>attendance_date</th>
+				<th>clock_in</th>
+				<th>clock_out</th>
+			</tr>
+		</thead>
+		<thead>
+			<?php
+			date_default_timezone_set("Asia/Dhaka");
+			require 'local_db.php';
+			$sql_data  = "SELECT U.`Badgenumber` AS employee_id, FORMAT(C.CHECKTIME,'yyyyMMdd') AS attendance_date, MIN(FORMAT(C.`CHECKTIME`,'HH:mm')) AS clock_in, MAX(FORMAT(C.`CHECKTIME`,'HH:mm')) AS clock_out
+			FROM CHECKINOUT  C
+			LEFT JOIN USERINFO U ON U.USERID=C.USERID
+			GROUP BY FORMAT(C.CHECKTIME,'yyyyMMdd'), U.`Badgenumber`";
+
+			$result_data = $db->query($sql_data);
+
+			$i = 1;
+			while ($row_data = $result_data->fetch()) {
+			?>
+				<tr>
+					<td><?=$i++?></td>
+					<td><?=$row_data["employee_id"]?></td>
+					<td><?=$row_data["attendance_date"]?></td>
+					<td><?=$row_data["clock_in"]?></td>
+					<td><?=$row_data["clock_out"]?></td>
+				</tr>
+			<?php
+			}
+			?>
+		</thead>
+	</table>
+
+
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>SL</th>
 				<th>User ID</th>
 				<th>Staff ID</th>
 				<th>Name</th>
@@ -26,7 +66,7 @@
 		<thead>
 			<?php
 			date_default_timezone_set("Asia/Dhaka");
-			require 'local_db.php';
+			// require 'local_db.php';
 			//$mydate = date('Ymd');
 
 			// $sql = "SELECT * FROM USERINFO";   // table inside .mdb file
