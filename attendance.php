@@ -11,12 +11,12 @@
 		<thead>
 			<tr>
 				<th>SL</th>
-				<th>USERID</th>
-				<th>BaseNumber</th>
+				<th>User ID</th>
+				<th>Staff ID</th>
 				<th>Name</th>
-				<th>Phone</th>
 				<th>Date</th>
 				<th>Time</th>
+				<th>Time-2</th>
 				<th>DateTIME</th>
 				<th>Delete
 					<button type="button"><a href="all_delete.php">All</a></button>
@@ -38,7 +38,7 @@
 
 
 			//echo $mydate;
-			$sql  = "SELECT u.*,c.* FROM USERINFO u, CHECKINOUT  c  WHERE u.USERID = c.USERID AND  FORMAT(c.CHECKTIME,'yyyyMMdd') ORDER BY c.CHECKTIME DESC";
+			$sql  = "SELECT u.`USERID` AS MACHINID, u.`Badgenumber` AS USERID, u.`SSN` AS STAFFID, u.`Name`, c.`CHECKTIME`, FORMAT(c.`CHECKTIME`,'HH:mm') AS clock_in FROM USERINFO u, CHECKINOUT  c  WHERE u.USERID = c.USERID AND  FORMAT(c.CHECKTIME,'yyyyMMdd') ORDER BY c.CHECKTIME DESC";
 
 			$result = $db->query($sql);
 			//echo $result;
@@ -50,14 +50,14 @@
 				<tr>
 					<td><?php echo $index++; ?></td>
 					<td><?php echo $row["USERID"]; ?></td>
-					<td><?php echo $row["Badgenumber"]; ?></td>
+					<td><?php echo $row["STAFFID"]; ?></td>
 					<td><?php echo $row["Name"]; ?></td>
-					<td><?php echo $row["PAGER"]; ?></td>
-					<td><?php echo date('d-m-Y', strtotime($row["CHECKTIME"])); ?></td>
+					<td><?php echo date('Y-m-d', strtotime($row["CHECKTIME"])); ?></td>
 					<td><?php echo date('h:i:s A', strtotime($row["CHECKTIME"])); ?></td>
+					<td><?php echo $row["clock_in"]; ?></td>
 					<td><?php echo $row["CHECKTIME"]; ?></td>
 					<td>
-						<button><a href="delete.php?id=<?php echo $row["USERID"]; ?>">Delete</a></button>
+						<button><a href="delete.php?id=<?php echo $row["MACHINID"]; ?>">Delete</a></button>
 					</td>
 				</tr>
 			<?php
