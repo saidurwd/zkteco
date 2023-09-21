@@ -12,7 +12,7 @@
 	</div>
 	<script type="text/javascript" src="JQuery3.2.1.min.js"></script>
 	<script type="text/javascript">
-		var counter = 10;
+		var counter = 5;
 		intID = setInterval(Gettime, 1000);
 
 		function Gettime() {
@@ -43,7 +43,7 @@
 				});
 			});
 			/*--------start counter-----------*/
-			counter = 60;
+			counter = 3600;
 		}
 	</script>
 </body>
